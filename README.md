@@ -58,7 +58,7 @@ A payroll calculator that determines an employee's weekly pay.
 
 ```python
 input()
-if / elif / else
+if/ elif / else
 while True
 break
 functions
@@ -389,6 +389,273 @@ Next up:
 
 > **Exercise 6 — Lists + Functions**
 
+Exercise 6 focused on strengthening one of the most important beginner Python combinations:
+
+```text
+Lists + Functions + Loops
+```
+
+Instead of working with single values, these exercises introduced passing entire lists into functions, processing items one by one, and returning useful results.
+
 ---
+
+### Exercise 6A — Search for an Item
+
+Created a function that checks whether a user-entered item exists in a shopping list.
+
+Example list:
+
+```python
+shopping_list = ["apple", "milk", "bread", "banana", "cheese"]
+```
+
+The user can search for an item:
+
+```text
+Enter item to search: banana
+```
+
+Output:
+
+```text
+banana is in the shopping list.
+```
+
+If the item does not exist:
+
+```text
+Enter item to search: chicken
+```
+
+Output:
+
+```text
+chicken is not in the shopping list.
+```
+
+### Key Concepts Practiced
+
+```python
+if search_item in shopping_list:
+```
+
+* Passing a list into a function
+* Passing multiple parameters
+* Using the `in` operator
+* Returning `True` or `False`
+* Using a returned Boolean value outside the function
+
+Example:
+
+```python
+def analyzing_list(shopping_list, search_item):
+    if search_item in shopping_list:
+        return True
+    else:
+        return False
+```
+
+A simplified version can also be written as:
+
+```python
+def analyzing_list(shopping_list, search_item):
+    return search_item in shopping_list
+```
+
+---
+
+### Exercise 6B — Count Matching Items
+
+Extended the previous exercise by counting how many times an item appears in a list.
+
+Example list:
+
+```python
+shopping_list = [
+    "apple",
+    "milk",
+    "bread",
+    "banana",
+    "cheese",
+    "apple",
+    "milk"
+]
+```
+
+Example:
+
+```text
+Enter item to search: apple
+```
+
+Output:
+
+```text
+apple appears 2 times.
+```
+
+If the item appears once:
+
+```text
+cheese appears 1 time.
+```
+
+If it does not appear:
+
+```text
+chicken is not in the shopping list.
+```
+
+### Key Concepts Practiced
+
+* Looping through a list
+* Comparing each list item
+* Using a counter variable
+* Incrementing with `+=`
+* Returning a count from a function
+* Using the returned count with `if / elif / else`
+
+Core logic:
+
+```python
+def analyzing_list(shopping_list, search_item):
+    count = 0
+
+    for item in shopping_list:
+        if item == search_item:
+            count += 1
+
+    return count
+```
+
+This exercise reinforced an important pattern:
+
+```text
+Start counter at 0
+        ↓
+Loop through list
+        ↓
+Check each item
+        ↓
+Increase counter when matched
+        ↓
+Return final count
+```
+
+---
+
+### Exercise 6C — Build and Return a New List
+
+Created a function that filters items from an existing list and returns a new list.
+
+The goal was to find all shopping-list items containing more than 5 letters.
+
+Example:
+
+```python
+shopping_list = [
+    "apple",
+    "milk",
+    "bread",
+    "banana",
+    "cheese",
+    "avocado",
+    "mango"
+]
+```
+
+Expected result:
+
+```python
+["banana", "cheese", "avocado"]
+```
+
+### Key Concepts Practiced
+
+* Creating an empty list
+* Looping through an existing list
+* Using `len()` on strings
+* Filtering with an `if` condition
+* Adding values using `.append()`
+* Returning an entire list from a function
+* Understanding local variables inside functions
+
+Core logic:
+
+```python
+def find_long_items(shopping_list):
+    new_shopping_list = []
+
+    for item in shopping_list:
+        if len(item) > 5:
+            new_shopping_list.append(item)
+
+    return new_shopping_list
+```
+
+This introduced another important programming pattern:
+
+```text
+Original List
+      ↓
+Function
+      ↓
+Create Empty List
+      ↓
+Loop Through Original List
+      ↓
+Check Condition
+      ↓
+Append Matching Items
+      ↓
+Return New List
+```
+
+---
+
+### What I Learned from Exercise 6
+
+These exercises helped strengthen the relationship between lists and functions.
+
+The three main patterns were:
+
+```text
+6A → Check whether something exists in a list
+
+6B → Count how many times something appears
+
+6C → Filter items and create a new list
+```
+
+I also improved my understanding of the difference between:
+
+```python
+for item in shopping_list:
+```
+
+which processes individual items, and:
+
+```python
+len(shopping_list)
+```
+
+or:
+
+```python
+search_item in shopping_list
+```
+
+which operate on the list as a whole.
+
+Exercise 6 was especially useful for understanding how functions can receive a list, process its contents, and return different types of results such as:
+
+```text
+Boolean → True / False
+Integer → count
+List → filtered results
+```
+
+These patterns are foundational for more advanced Python, data processing, automation, and machine learning.
+
 
 ⭐ This repository will continue to grow as I progress through Python and eventually move toward Machine Learning and Generative AI.
