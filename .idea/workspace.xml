@@ -4,19 +4,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16601420-2bf5-4971-83d4-301cb7589ebd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Daily_Practice.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Employee_Performance.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Payroll_calculator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Restaurant_bill_calculator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Student_Grade_calculator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopping_discount_calculator.py" afterDir="false" />
+    <list default="true" id="16601420-2bf5-4971-83d4-301cb7589ebd" name="Changes" comment="1. Payroll_calculator&#10;2. Restaurant_bill_calculator.py&#10;3. shopping_discount_calculator.py&#10;4. Student_Grade_calculator.py">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Employee_Performance.py" beforeDir="false" afterPath="$PROJECT_DIR$/Employee_Performance.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +24,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "aayush-dhg"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/aayush-dhg/Daily_Practice.git",
+    "accountId": "c051056e-339b-4bde-9559-f118f0dfb56f"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 7,
   "fromUser": false
@@ -49,6 +52,7 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.Day_1.executor": "Run",
+    "Python.Employee_Performance.executor": "Run",
     "Python.Restaurant_bill_calculator.executor": "Run",
     "Python.Student_Grade_calculator.executor": "Run",
     "Python.shopping_discount_calculator.executor": "Run",
@@ -76,12 +80,25 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1786235475186</updated>
-      <workItem from="1786235476203" duration="7732000" />
+      <workItem from="1786235476203" duration="9640000" />
     </task>
+    <task id="LOCAL-00001" summary="1. Payroll_calculator&#10;2. Restaurant_bill_calculator.py&#10;3. shopping_discount_calculator.py&#10;4. Student_Grade_calculator.py">
+      <option name="closed" value="true" />
+      <created>1786243323864</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1786243323864</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1. Payroll_calculator&#10;2. Restaurant_bill_calculator.py&#10;3. shopping_discount_calculator.py&#10;4. Student_Grade_calculator.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="1. Payroll_calculator&#10;2. Restaurant_bill_calculator.py&#10;3. shopping_discount_calculator.py&#10;4. Student_Grade_calculator.py" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -100,6 +117,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Daily_Practice$Employee_Performance.coverage" NAME="Employee_Performance Coverage Results" MODIFIED="1786244755946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Daily_Practice$Student_Grade_calculator.coverage" NAME="Student_Grade_calculator Coverage Results" MODIFIED="1786238929241" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Daily_Practice$Restaurant_bill_calculator.coverage" NAME="Restaurant_bill_calculator Coverage Results" MODIFIED="1786242740964" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Daily_Practice$shopping_discount_calculator.coverage" NAME="shopping_discount_calculator Coverage Results" MODIFIED="1786240604584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
