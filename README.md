@@ -655,6 +655,809 @@ Integer → count
 List → filtered results
 ```
 
+## Exercise 7 — For Loops + Lists + Data Analysis
+
+Exercise 7 focused on analyzing numerical data manually using loops instead of relying on built-in shortcuts such as:
+
+```python
+max()
+min()
+sum()
+```
+
+The goal was to understand how these operations work internally.
+
+---
+
+### Exercise 7 — Score Analyzer
+
+Analyzed a list of student scores and calculated:
+
+* Highest score
+* Lowest score
+* Average score
+
+Example:
+
+```python
+scores = [78, 92, 65, 88, 100, 54, 81]
+```
+
+Core logic:
+
+```python
+highest = scores[0]
+lowest = scores[0]
+total = 0
+
+for score in scores:
+    total += score
+
+    if score > highest:
+        highest = score
+
+    if score < lowest:
+        lowest = score
+```
+
+### Key Concepts Practiced
+
+* Initializing variables from the first list element
+* Accumulators
+* Manual highest-value search
+* Manual lowest-value search
+* Calculating averages
+* Multiple return values
+
+---
+
+### Exercise 7A — Temperature Analyzer
+
+Reinforced the same pattern using temperature data.
+
+```python
+temperatures = [72, 85, 68, 91, 77, 64, 88]
+```
+
+The function calculated:
+
+```text
+Highest Temperature
+Lowest Temperature
+Average Temperature
+```
+
+This exercise strengthened the pattern:
+
+```text
+initialize
+    ↓
+loop
+    ↓
+compare
+    ↓
+update
+    ↓
+calculate
+    ↓
+return
+```
+
+---
+
+### Exercise 7B — Sales Analyzer
+
+Expanded the analysis by performing multiple operations during the same loop.
+
+The function calculated:
+
+* Highest sale
+* Lowest sale
+* Average sale
+* Number of sales above $200
+
+Example:
+
+```python
+sales = [120, 250, 90, 300, 175, 80, 260]
+```
+
+A counter was introduced:
+
+```python
+above_200 = 0
+
+for sale in sales:
+    if sale > 200:
+        above_200 += 1
+```
+
+This showed how one loop can perform several independent analyses efficiently.
+
+---
+
+### Exercise 7C — Filter Sales Into a New List
+
+Combined numerical analysis with list filtering.
+
+The program created a new list containing only sales greater than `$200`.
+
+Example:
+
+```python
+sales = [120, 250, 90, 300, 175, 80, 260]
+```
+
+Filtered result:
+
+```python
+[250, 300, 260]
+```
+
+Core logic:
+
+```python
+def filter_sales(sales):
+    filtered_sales = []
+
+    for sale in sales:
+        if sale > 200:
+            filtered_sales.append(sale)
+
+    return filtered_sales
+```
+
+Additional functions were created to calculate:
+
+* Total of filtered sales
+* Highest filtered sale
+
+### Key Learning
+
+One function's returned list can be passed into another function:
+
+```text
+Original List
+     ↓
+filter_sales()
+     ↓
+Filtered List
+     ↓
+ ┌──────────────┐
+ ↓              ↓
+total_sales()  find_highest()
+```
+
+---
+
+# Exercise 8 — `range()` + Loops + Calculations
+
+Exercise 8 focused on understanding Python's `range()` function and using generated number sequences inside loops.
+
+---
+
+### Exercise 8 — Multiplication Table Generator
+
+Created a function that generated multiplication results up to a user-defined limit.
+
+Example:
+
+```text
+Number: 5
+Limit: 5
+```
+
+Output:
+
+```text
+5 * 1 = 5
+5 * 2 = 10
+5 * 3 = 15
+5 * 4 = 20
+5 * 5 = 25
+```
+
+The program also calculated the total of all products.
+
+Core concept:
+
+```python
+for i in range(1, limit + 1):
+```
+
+This reinforced that the ending value in `range()` is excluded.
+
+For example:
+
+```python
+range(1, 6)
+```
+
+produces:
+
+```text
+1, 2, 3, 4, 5
+```
+
+---
+
+### Exercise 8A — Even Number Analyzer
+
+Used `range()` and the modulo operator `%` to find even numbers.
+
+Example:
+
+```text
+Start: 1
+End: 10
+```
+
+Result:
+
+```python
+[2, 4, 6, 8, 10]
+```
+
+Core condition:
+
+```python
+if num % 2 == 0:
+```
+
+The function returned:
+
+* List of even numbers
+* Total of even numbers
+
+---
+
+### Exercise 8B — Separate Even and Odd Numbers
+
+Expanded Exercise 8A by creating two lists during the same loop.
+
+```python
+even_numbers = []
+odd_numbers = []
+```
+
+Each number was classified using:
+
+```python
+if num % 2 == 0:
+    ...
+else:
+    ...
+```
+
+The program calculated:
+
+* Even-number list
+* Odd-number list
+* Total of even numbers
+* Total of odd numbers
+
+It also compared the totals.
+
+A three-state result was introduced:
+
+```python
+True
+False
+None
+```
+
+where:
+
+```text
+True  → even total is greater
+False → odd total is greater
+None  → totals are equal
+```
+
+This was also an introduction to using:
+
+```python
+is None
+```
+
+---
+
+### Exercise 8C — Multiples Analyzer
+
+Created a program that finds numbers divisible by a user-provided divisor.
+
+Example:
+
+```text
+Start: 1
+End: 30
+Divisor: 5
+```
+
+Result:
+
+```python
+[5, 10, 15, 20, 25, 30]
+```
+
+The function calculated:
+
+* Matching multiples
+* Total of multiples
+* Number of matches
+* Largest matching multiple
+
+Core condition:
+
+```python
+if num % divisor == 0:
+```
+
+Input validation was also added to prevent:
+
+```python
+divisor = 0
+```
+
+because modulo by zero is invalid.
+
+### Key Concepts Practiced
+
+```text
+range()
+%
+.append()
+counters
+accumulators
+input validation
+manual maximum search
+multiple return values
+```
+
+---
+
+# Exercise 9 — Random Module + Lists
+
+Exercise 9 introduced Python's `random` module and explored several ways of making random selections.
+
+---
+
+### Exercise 9 — Random Student Picker
+
+Used:
+
+```python
+random.sample()
+```
+
+to randomly select multiple unique students from a list.
+
+Example:
+
+```python
+students = ["Alex", "Sarah", "Mike", "John", "Emma", "David"]
+```
+
+Core function:
+
+```python
+def pick_random_student(student_list, num):
+    return random.sample(student_list, num)
+```
+
+Validation ensured that:
+
+```text
+1 <= number selected <= total students
+```
+
+---
+
+### Exercise 9A — Unique Random Selection Using `random.choice()`
+
+Recreated the behavior of `random.sample()` manually using:
+
+```python
+random.choice()
+```
+
+A `while` loop repeatedly selected students.
+
+Duplicates were prevented with:
+
+```python
+if student not in picked_students:
+```
+
+Core logic:
+
+```python
+while len(picked_students) < num:
+    student = random.choice(student_list)
+
+    if student not in picked_students:
+        picked_students.append(student)
+```
+
+### Important Difference Learned
+
+```text
+random.choice()
+→ selects one random item
+→ duplicates are possible
+
+random.sample()
+→ selects multiple unique items
+→ no duplicates
+```
+
+---
+
+### Exercise 9B — Number Guessing Game
+
+Used:
+
+```python
+random.randint(1, 20)
+```
+
+to generate a secret number.
+
+The player received a limited number of attempts to guess correctly.
+
+A separate function evaluated each guess:
+
+```python
+def check_guess(secret_number, guess):
+    if guess < secret_number:
+        return "low"
+    elif guess > secret_number:
+        return "high"
+    else:
+        return "correct"
+```
+
+The game loop handled:
+
+* Attempt counting
+* Invalid guesses
+* Correct guesses
+* Maximum attempts
+* `break`
+* `continue`
+
+### Important Lesson
+
+The program separated responsibilities:
+
+```text
+check_guess()
+→ evaluates the guess
+
+while loop
+→ controls the game
+```
+
+This helped reinforce writing smaller functions with clearly defined responsibilities.
+
+---
+
+# Exercise 10 — Nested Conditions + Login System
+
+Exercise 10 focused on nested `if` statements.
+
+A simple login system was created with:
+
+```python
+correct_username = "admin"
+correct_password = "password123"
+```
+
+The login-checking function used nested conditions:
+
+```python
+def check_login(username, password):
+    if username == correct_username:
+        if password == correct_password:
+            return "Login successful"
+        else:
+            return "Incorrect password"
+    else:
+        return "Incorrect username"
+```
+
+The program allowed a maximum of three login attempts.
+
+### Key Concepts Practiced
+
+* Nested `if`
+* Authentication-style logic
+* Attempt counters
+* `while` loops
+* `break`
+* Functions
+* Return values
+
+### Logic Flow
+
+```text
+Username correct?
+      ↓ yes
+Password correct?
+   ↓ yes      ↓ no
+Success     Wrong password
+
+Username incorrect
+      ↓
+Wrong username
+```
+
+---
+
+# Exercise 11 — String Analysis
+
+Exercise 11 introduced more detailed string processing using loops.
+
+---
+
+### Exercise 11 — Vowel and Consonant Analyzer
+
+The user entered a word or sentence.
+
+The function analyzed every character and returned:
+
+* Number of vowels
+* Number of consonants
+* List of vowels found
+
+Core loop:
+
+```python
+for char in text:
+    if char in vowels:
+        vowel_count += 1
+        vowel_list.append(char)
+
+    elif char.isalpha():
+        consonant_count += 1
+```
+
+### New String Method
+
+```python
+.isalpha()
+```
+
+was used to determine whether a character is alphabetic.
+
+Examples:
+
+```python
+"a".isalpha()   # True
+"7".isalpha()   # False
+" ".isalpha()   # False
+"!".isalpha()   # False
+```
+
+This allowed spaces, numbers, and punctuation to be ignored when counting consonants.
+
+---
+
+### Exercise 11A — Letter Counter + Index Finder
+
+Created a program that asks the user for:
+
+* A word or sentence
+* A letter to search for
+
+The program manually counted occurrences without using:
+
+```python
+.count()
+```
+
+Input validation ensured that the search input contained exactly one alphabetic character:
+
+```python
+while len(search_letter) != 1 or not search_letter.isalpha():
+```
+
+The function then used:
+
+```python
+enumerate()
+```
+
+to retrieve both the index and character while looping.
+
+Example:
+
+```python
+for index, char in enumerate(text):
+```
+
+For:
+
+```text
+banana
+```
+
+Python processes:
+
+```text
+Index 0 → b
+Index 1 → a
+Index 2 → n
+Index 3 → a
+Index 4 → n
+Index 5 → a
+```
+
+Matching indexes were stored using:
+
+```python
+indexes.append(index)
+```
+
+Example result:
+
+```text
+Search letter: a
+
+Count: 3
+Indexes: [1, 3, 5]
+```
+
+### Key Concept
+
+The difference between:
+
+```python
+for char in text:
+```
+
+and:
+
+```python
+for index, char in enumerate(text):
+```
+
+is that `enumerate()` provides both:
+
+```text
+index + value
+```
+
+---
+
+# 🧠 Major Concepts Reinforced in Exercises 7–11
+
+These exercises significantly expanded the earlier fundamentals.
+
+### Lists and Loops
+
+```text
+Iterating through lists
+Filtering lists
+Building new lists
+Counters
+Accumulators
+Comparing values
+```
+
+### Functions
+
+```text
+Parameters
+Return values
+Multiple return values
+Passing returned data into another function
+Separating responsibilities between functions
+```
+
+### Number Processing
+
+```text
+range()
+modulo %
+even / odd checks
+divisibility
+manual maximum
+manual minimum
+averages
+```
+
+### Randomization
+
+```python
+random.choice()
+random.sample()
+random.randint()
+```
+
+### Loop Control
+
+```python
+break
+continue
+```
+
+### Strings
+
+```python
+.isalpha()
+.lower()
+len()
+enumerate()
+```
+
+### Membership Checks
+
+```python
+in
+not in
+```
+
+---
+
+# 📈 Updated Progress
+
+* [x] Exercise 1 — Employee Pay Calculator
+* [x] Exercise 2 — Student Grade Calculator
+* [x] Exercise 3 — Shopping Cart Discount Calculator
+* [x] Exercise 4 — Restaurant Bill Calculator
+* [x] Exercise 5 — Employee Performance Evaluator
+* [x] Exercise 6A — List Membership Search
+* [x] Exercise 6B — Duplicate Counter
+* [x] Exercise 6C — List Filtering
+* [x] Exercise 7 — Score Analyzer
+* [x] Exercise 7A — Temperature Analyzer
+* [x] Exercise 7B — Sales Analyzer
+* [x] Exercise 7C — Sales Filtering
+* [x] Exercise 8 — Multiplication Table
+* [x] Exercise 8A — Even Number Analyzer
+* [x] Exercise 8B — Even/Odd Separator
+* [x] Exercise 8C — Multiples Analyzer
+* [x] Exercise 9 — Random Student Picker
+* [x] Exercise 9A — Unique Random Picker
+* [x] Exercise 9B — Number Guessing Game
+* [x] Exercise 10 — Login Attempt System
+* [x] Exercise 11 — String Analyzer
+* [x] Exercise 11A — Letter Count & Index Finder
+* [ ] Exercise 12 — Next
+* [ ] Final Fundamentals Mini Project
+
+---
+
+## 🚀 Current Skill Progress
+
+At this stage, I am becoming more comfortable combining multiple Python concepts instead of practicing them independently.
+
+The exercises are increasingly following this pattern:
+
+```text
+Input
+  ↓
+Validation
+  ↓
+Function
+  ↓
+Loop
+  ↓
+Conditional Logic
+  ↓
+List / String Processing
+  ↓
+Return Result
+  ↓
+Output
+```
+
+The focus remains on understanding how Python works manually before relying on built-in shortcuts.
+
+The next exercises will continue reinforcing these fundamentals before moving toward larger Python projects and more advanced topics.
+
+
 These patterns are foundational for more advanced Python, data processing, automation, and machine learning.
 
 
