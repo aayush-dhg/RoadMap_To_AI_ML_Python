@@ -1,0 +1,24 @@
+temperatures = [72, 85, 68, 91, 77, 64, 88]
+
+def analyze_temperatures(temperatures):
+    highest_temp = temperatures[0]
+    lowest_temp = temperatures[0]
+
+    total_temp = 0
+
+    for temp in temperatures:
+        total_temp += temp
+
+        if temp > highest_temp:
+            highest_temp = temp
+
+        if temp < lowest_temp:
+            lowest_temp = temp
+    average_temp = total_temp / len(temperatures)
+
+    return highest_temp, lowest_temp, average_temp
+highest_temp, lowest_temp, average_temp = analyze_temperatures(temperatures)
+print(f"Highest temperature: {highest_temp}")
+print(f"Lowest temperature: {lowest_temp}")
+print(f"Average temperature: {average_temp:.2f}")
+            
