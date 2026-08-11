@@ -1308,6 +1308,496 @@ Count: 3
 Indexes: [1, 3, 5]
 ```
 
+````md
+## Exercise 12 — Caesar Cipher Encoder & Decoder
+
+Exercise 12 focused on combining several Python fundamentals into one complete program.
+
+The program can:
+
+- Encode a message using a Caesar Cipher
+- Decode an encoded message
+- Shift letters forward or backward
+- Preserve spaces, numbers, and special characters
+- Validate user input
+- Allow the user to restart the program
+- Handle invalid shift values without crashing
+
+---
+
+### Caesar Cipher Concept
+
+A Caesar Cipher shifts each letter in the alphabet by a specific number of positions.
+
+Example:
+
+```text
+Original:
+abc
+
+Shift:
+1
+
+Encoded:
+bcd
+````
+
+Another example:
+
+```text
+Original:
+xyz
+
+Shift:
+2
+
+Encoded:
+zab
+```
+
+The letters wrap around when the end of the alphabet is reached.
+
+---
+
+### Alphabet List
+
+The alphabet was stored inside a Python list:
+
+```python
+alphabet = [
+    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
+    'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
+    'u', 'v', 'w', 'x', 'y', 'z'
+]
+```
+
+---
+
+### Main Caesar Function
+
+The Caesar Cipher logic was placed inside a function:
+
+```python
+def caesar(original_text, shift_amount, encode_or_decode):
+    output_text = ""
+
+    if encode_or_decode == "decode":
+        shift_amount *= -1
+
+    for letter in original_text:
+        if letter not in alphabet:
+            output_text += letter
+        else:
+            shifted_position = alphabet.index(letter) + shift_amount
+            shifted_position %= len(alphabet)
+            output_text += alphabet[shifted_position]
+
+    print(f"Here is the {encode_or_decode}d result: {output_text}")
+```
+
+---
+
+### Encoding and Decoding
+
+Encoding shifts letters forward:
+
+```text
+abc + 2
+→ cde
+```
+
+Decoding reverses the shift.
+
+This was done by converting the shift amount into a negative number:
+
+```python
+if encode_or_decode == "decode":
+    shift_amount *= -1
+```
+
+Example:
+
+```text
+Encoded:
+cde
+
+Shift:
+2
+
+Decoded:
+abc
+```
+
+---
+
+### Using `.index()`
+
+The program uses:
+
+```python
+alphabet.index(letter)
+```
+
+to find the current position of a letter.
+
+Example:
+
+```text
+a → index 0
+b → index 1
+c → index 2
+...
+z → index 25
+```
+
+Then the shift amount is added:
+
+```python
+shifted_position = alphabet.index(letter) + shift_amount
+```
+
+---
+
+### Wrapping With Modulo `%`
+
+One of the most important concepts in this exercise was using modulo to keep the index inside the alphabet.
+
+```python
+shifted_position %= len(alphabet)
+```
+
+Since:
+
+```python
+len(alphabet)
+```
+
+is:
+
+```text
+26
+```
+
+a shifted index larger than `25` wraps back to the beginning.
+
+Example:
+
+```text
+z = index 25
+
+25 + 2 = 27
+
+27 % 26 = 1
+```
+
+Index `1` is:
+
+```text
+b
+```
+
+Therefore:
+
+```text
+z shifted by 2 → b
+```
+
+---
+
+### Preserving Spaces and Symbols
+
+Characters that are not in the alphabet are added without modification.
+
+```python
+if letter not in alphabet:
+    output_text += letter
+```
+
+This allows input such as:
+
+```text
+hello world!
+```
+
+to work correctly without spaces or punctuation causing an error.
+
+---
+
+## Input Validation
+
+The program includes validation for several user inputs.
+
+### Encode / Decode Validation
+
+The user must enter either:
+
+```text
+encode
+```
+
+or:
+
+```text
+decode
+```
+
+The program keeps asking until a valid option is entered.
+
+```python
+while True:
+    direction = input(
+        "Type 'encode' to encrypt, 'decode' to decrypt.\n"
+    ).lower()
+
+    if direction in ["encode", "decode"]:
+        break
+    else:
+        print("Invalid input. Please type 'encode' or 'decode'.")
+```
+
+This reinforced list membership checking:
+
+```python
+direction in ["encode", "decode"]
+```
+
+---
+
+### Shift Number Validation
+
+The shift value must contain digits.
+
+```python
+while True:
+    shift_input = input("Type the shift number: \n")
+
+    if shift_input.isdigit():
+        shift = int(shift_input)
+        break
+    else:
+        print("Invalid input. Please enter a number.")
+```
+
+This introduced:
+
+```python
+.isdigit()
+```
+
+which checks whether a string contains numeric digits.
+
+Example:
+
+```text
+"5"      → True
+"20"     → True
+"hello"  → False
+"!"      → False
+```
+
+---
+
+### Restart Validation
+
+After encoding or decoding, the user can choose whether to run the program again.
+
+Valid options:
+
+```text
+yes
+no
+```
+
+```python
+while True:
+    restart = input(
+        "Type 'Yes' if you want to go again. Otherwise type 'No'.\n"
+    ).lower()
+
+    if restart == "no":
+        should_continue = False
+        print("Good Bye")
+        break
+
+    elif restart == "yes":
+        break
+
+    else:
+        print("Invalid input. Please type 'Yes' or 'No'.")
+```
+
+---
+
+## Nested Loop Structure
+
+This exercise also introduced a useful nested-loop pattern.
+
+```text
+OUTER LOOP
+Controls the complete Caesar program
+        │
+        ├── Direction validation loop
+        │
+        ├── Ask for message
+        │
+        ├── Shift validation loop
+        │
+        ├── Run Caesar Cipher
+        │
+        └── Restart validation loop
+```
+
+The outer loop:
+
+```python
+while should_continue:
+```
+
+keeps the entire program running.
+
+The inner loops validate individual user inputs.
+
+---
+
+## Key Concepts Practiced
+
+```text
+Lists
+Strings
+Functions
+Parameters
+for loops
+while loops
+Nested loops
+if / elif / else
+break
+.index()
+len()
+%
+.isdigit()
+.lower()
+in
+not in
+String concatenation
+Input validation
+```
+
+---
+
+## Important Lessons
+
+### `.index()`
+
+Finds the position of an item inside a list:
+
+```python
+alphabet.index("c")
+```
+
+returns:
+
+```text
+2
+```
+
+---
+
+### Modulo `%`
+
+Keeps shifted positions inside the alphabet:
+
+```python
+shifted_position %= len(alphabet)
+```
+
+---
+
+### `.isdigit()`
+
+Checks whether user input contains digits:
+
+```python
+shift_input.isdigit()
+```
+
+---
+
+### Membership Checking
+
+```python
+if direction in ["encode", "decode"]:
+```
+
+checks whether a value exists inside a list.
+
+---
+
+### `break`
+
+Used to exit validation loops once valid input is received.
+
+---
+
+## Program Flow
+
+```text
+Start
+  ↓
+Choose Encode / Decode
+  ↓
+Validate Choice
+  ↓
+Enter Message
+  ↓
+Enter Shift
+  ↓
+Validate Shift
+  ↓
+Loop Through Message
+  ↓
+Find Letter Index
+  ↓
+Apply Shift
+  ↓
+Wrap Using %
+  ↓
+Build Output
+  ↓
+Display Result
+  ↓
+Restart?
+  ├── Yes → Run Again
+  └── No  → Exit
+```
+
+---
+
+### Exercise 12 — Completed ✅
+
+This exercise combined many of the Python fundamentals learned in previous exercises into a more complete interactive application.
+
+The biggest concepts reinforced were:
+
+```text
+String processing
++
+List indexing
++
+Modulo
++
+Functions
++
+Loops
++
+Input validation
+```
+
+The next step is to apply these fundamentals in a larger mini-project with less step-by-step guidance.
+
+```
+```
+
+
 ### Key Concept
 
 The difference between:
@@ -1424,7 +1914,7 @@ not in
 * [x] Exercise 10 — Login Attempt System
 * [x] Exercise 11 — String Analyzer
 * [x] Exercise 11A — Letter Count & Index Finder
-* [ ] Exercise 12 — Next
+* [x] Exercise 12 — Caesar-Cypher
 * [ ] Final Fundamentals Mini Project
 
 ---
